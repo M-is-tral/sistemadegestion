@@ -43,7 +43,7 @@ public class GestionProductos extends JFrame {
         btnNuevo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new FormularioProducto(null); // Nuevo producto
+                new FormularioProducto(null); 
             }
         });
 
@@ -54,8 +54,8 @@ public class GestionProductos extends JFrame {
                 if (filaSeleccionada != -1) {
                     int id = (int) model.getValueAt(filaSeleccionada, 0);
                     ProductoDAO productoDAO = new ProductoDAO();
-                    Producto producto = productoDAO.obtenerProductos().get(id); // Cargar producto
-                    new FormularioProducto(producto); // Editar producto
+                    Producto producto = productoDAO.obtenerProductos().get(id); 
+                    new FormularioProducto(producto); 
                 } else {
                     JOptionPane.showMessageDialog(null, "Seleccione un producto para editar.");
                 }
@@ -69,12 +69,11 @@ public class GestionProductos extends JFrame {
                 if (filaSeleccionada != -1) {
                     int id = (int) model.getValueAt(filaSeleccionada, 0);
                     ProductoDAO productoDAO = new ProductoDAO();
-                    productoDAO.eliminarProducto(id); // Eliminar producto
-                    cargarProductos(); // Actualizar lista
+                    productoDAO.eliminarProducto(id); 
+                    cargarProductos(); 
                 }
             }
         });
-
         panelBotones.add(btnNuevo);
         panelBotones.add(btnEditar);
         panelBotones.add(btnEliminar);
@@ -148,7 +147,7 @@ public class GestionProductos extends JFrame {
       private void cargarProductos() {
         ProductoDAO productoDAO = new ProductoDAO();
         List<Producto> productos = productoDAO.obtenerProductos();
-        model.setRowCount(0); // Limpiar tabla
+        model.setRowCount(0); 
         for (Producto producto : productos) {
             model.addRow(new Object[]{
                 producto.getId(),
