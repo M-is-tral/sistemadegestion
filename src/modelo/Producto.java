@@ -11,8 +11,7 @@ public class Producto {
     private String categoria;
     private double precio;
     private int cantidadDisponible;
-
-    // Constructor vacío
+    
     public Producto() {}
 
     public Producto(int id, String nombre, String marca, String categoria, double precio, int cantidadDisponible) {
